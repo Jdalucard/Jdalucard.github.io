@@ -81,10 +81,13 @@ hr {
 
 .container__one {
   width: 40vw;
-  height: 60vh;
+  text-align: center;
   margin: 5px 10px;
-  border: 2px solid #fff;
-  box-shadow: inset 0 0 10px var(--letras), 0 0 10px var(--letras);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-clamp: 2;
+  overflow: hidden;
+
 }
 .container__one p {
   color: var(--letras);
@@ -128,7 +131,7 @@ hr {
   backface-visibility: hidden;
   width: 100%;
   height: 100%;
-  transition: 1s;
+  transition: 2s;
 }
 
 .container__two img:nth-child(2) {
@@ -143,62 +146,66 @@ hr {
 }
 
 /*card*/
+.titulo{
+  text-align: center;
+  color: var(--letras);
+  margin-bottom: 15px;
 
-.container{
+}
+.container {
   position: relative;
   display: flex;
   justify-content: space-between;
-
- 
+  margin-bottom: 15px;
 }
 
 .card {
   position: relative;
   background: transparent;
+  border: none;
+  margin-bottom: 15px;
 }
-
 
 .container .card .face {
   width: 320px;
   height: 215px;
-  
 }
 
 .container .card .face__one {
   position: relative;
-  background:#111827;
+  background: #111827;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1;
   transform: translateY(100px);
+  transition: 1s;
+  
 }
 
-.container .card:hover .face__one{
-  
+.container .card:hover .face__one {
   transform: translateY(0);
 }
 
-.container .card .face__one .content{
+.container .card .face__one .content {
   opacity: 0.2;
   transition: 0.5s;
 }
 
-.container .card:hover .face__one .content{
+.container .card:hover .face__one .content {
   opacity: 1;
 }
 
-.container .card .face__one .content img{
+.container .card .face__one .content img {
   max-width: 100px;
 }
-.container .card .face__one .content h3{
-margin: 10px 0 0;
-padding: 0;
-color: var(--letras);
-text-align: center;
-font-size: 1.5em;
+.container .card .face__one .content h3 {
+  margin: 10px 0 0;
+  padding: 0;
+  color: var(--letras);
+  text-align: center;
+  font-size: 1.5em;
 }
-
 
 .container .card .face__two {
   position: relative;
@@ -207,34 +214,233 @@ font-size: 1.5em;
   box-sizing: border-box;
   align-items: center;
   box-sizing: border-box;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  transition: 1s;
   transform: translateY(-100px);
 }
 
-.container .card:hover .face__two{
+.container .card:hover .face__two {
   transform: translateY(0);
 }
 
-.container .card .face__two p{
-   bottom: 5px; 
+.container .card .face__two p {
+  bottom: 5px;
   padding: 5px;
   color: var(--letras);
   text-align: center;
-
 }
 
-.container .card .face__two a{
+.container .card .face__two a {
   display: inline-block;
   text-decoration: none;
   font-weight: 900;
   color: var(--letras);
   padding: 5px;
   border: 5px solid rgba(51, 51, 51, 0.559);
-  margin-left: 100px ;
+  margin-left: 100px;
   top: 15px;
-
 }
 
-.container .card .face__two a:hover{
+.container .card .face__two a:hover {
   background: #111827;
 }
+/* form */
+
+.containerform {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+
+
+.containerform__two{
+width: 80%;
+padding: 20px;
+
+}
+.containerform h2 {
+  width: 100%;
+  color: var(--letras);
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 36px;
+}
+
+.containerform .row100 {
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(autofit, minmax(300px, 1fr));
+}
+
+.containerform .row100 .columna {
+  position: relative;
+  width: 100%;
+  padding: 0 10px;
+  margin: 30px 0 10px;
+  transition: 0.5s;
+}
+
+.containerform .row100 .inputbox {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  color: var(--letras)
+}
+
+.containerform .row100 .inputbox input,
+.containerform .row100 .inputbox .textarea textarea {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  padding: 0 10px;
+  z-index: 1;
+  color: #000;
+}
+.containerform .row100 .inputbox .text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 40px;
+  font-size: 18px;
+  padding: 0 10px;
+  display: block;
+  transition: 0.5s;
+  pointer-events: none;
+}
+.containerform .row100 .inputbox input:focus + .text,
+.containerform .row100 .inputbox input:valid + .text {
+  top: -35px;
+  left: -10px;
+}
+.containerform .row100 .inputbox .line {
+  position: absolute;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--letras);
+  transition: 0.5s;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.containerform .row100 .inputbox input:focus ~ .line,
+.containerform .row100 .inputbox input:valid ~ .line {
+  height: 100%;
+}
+
+.containerform .row100 .inputbox .textarea {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  padding: 10px 0;
+}
+
+.containerform .row100 .inputbox .textarea textarea {
+  height: 100%;
+  resize: none;
+}
+
+.containerform .row100 .inputbox textarea:focus + .text,
+.containerform .row100 .inputbox textarea:valid + .text {
+  top: -35px;
+  left: -10px;
+}
+
+.containerform .row100 .inputbox textarea:focus ~ .line,
+.containerform .row100 .inputbox textarea:valid ~ .line {
+  height: 100%;
+}
+
+input[type="submit"] {
+  border: none;
+  padding: 7px 35px;
+  cursor: pointer;
+  outline: none;
+  background-color: var(--letras);
+  color: #000;
+  font-size: 18px;
+  border-radius: 2px;
+}
+
+input[type="submit"]:hover {
+box-shadow: inset 0 0 10px var(--letras), 0 0 10px var(--letras);
+background: rgba(0, 0, 0, 0.8);
+color: var(--letras);
+}
+
+/* contenedor flexible */
+
+.contenedor__flexible{
+  width: 100%;
+  height: 200px;
+  box-sizing: border-box;
+  display: flex;
+  
+}
+
+.box{
+  width: auto;
+  text-align: center;
+  line-height: 200px;
+  flex-grow: 1 ;
+  transition: 0.5s;
+  font-size: 1.2em;
+  color: var(--letras);
+  overflow: hidden;
+}
+
+.box img{
+  width: 100%;
+  height: 200px;
+}
+.box:hover{
+  flex-grow: 2 ;
+  max-width: 60%;
+  font-size: 2em;
+}
+
+.contenedor__flexible .box:nth-child(1){
+  background: transparent;
+}
+.contenedor__flexible .box:nth-child(2){
+  background: transparent;
+}
+.contenedor__flexible .box:nth-child(3){
+  background: transparent;
+}
+.contenedor__flexible .box:nth-child(4){
+  background: transparent;
+}
+.contenedor__flexible .box:nth-child(5){
+  background: transparent;
+}
+.contenedor__flexible .box:nth-child(6){
+  background: transparent;
+}
+.contenedor__flexible .box:nth-child(7){
+  background: transparent;
+}
+.contenedor__flexible .box:nth-child(8){
+  background: transparent;
+}
+.contenedor__flexible .box:nth-child(1){
+  background: transparent;
+}
+
+/* footer */
+
+.text-center .autor{
+  color: #45ff64;
+  text-decoration: none;
+ 
+
+}
+
