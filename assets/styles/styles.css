@@ -241,7 +241,8 @@ hr {
 
 .container .card .face__one .content img {
   max-width: 130px;
- 
+ padding: 10px;
+ margin-left: 15px;
 }
 .container .card .face__one .content h3 {
   margin: 10px 0 0;
@@ -436,14 +437,13 @@ color: var(--letras);
   transition: 0.5s;
   font-size: 1.2em;
   color: var(--letras);
-  overflow: hidden;
-  margin: 15px;
+  margin-left: 15px;
 }
 
 .box img{
   width: 100%;
   height: 180px;
-  padding: 15px;
+  
 }
 .box:hover{
   flex-grow: 3 ;
